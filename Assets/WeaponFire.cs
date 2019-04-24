@@ -6,6 +6,7 @@ public class WeaponFire : MonoBehaviour
 {
     [SerializeField] Animator anim;
     [SerializeField] BoxCollider2D blastRadius;
+    [SerializeField] BoxCollider2D secondaryBlastRadius;
 
    public void Fire()
     {
@@ -15,6 +16,14 @@ public class WeaponFire : MonoBehaviour
         a.SetLayerMask(LayerMask.GetMask("Enemy"));
         List<Collider2D> results = new List<Collider2D>();
         Physics2D.OverlapCollider(blastRadius, a, results);
+        if (secondaryBlastRadius.enabled)
+        {
+            List<Collider2D> resultsSecondaryCamera = new List<Collider2D>();
+            Physics2D.OverlapCollider(secondaryBlastRadius, a, resultsSecondaryCamera);
+            Debug.Log(results.Count + " BEFORE + " + resultsSecondaryCamera.Count);
+            results.AddRange(resultsSecondaryCamera);
+            Debug.Log(results.Count + " AFTER + " + resultsSecondaryCamera.Count);
+        }
 
         if (results.Count > 0)
         {
