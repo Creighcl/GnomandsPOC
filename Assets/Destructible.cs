@@ -11,7 +11,6 @@ public class Destructible : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHitpoints -= damage;
-        Debug.Log("DMG TAKEN " + damage);
         StartCoroutine(FlashRed());
     }
 

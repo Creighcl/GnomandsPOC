@@ -20,9 +20,7 @@ public class WeaponFire : MonoBehaviour
         {
             List<Collider2D> resultsSecondaryCamera = new List<Collider2D>();
             Physics2D.OverlapCollider(secondaryBlastRadius, a, resultsSecondaryCamera);
-            Debug.Log(results.Count + " BEFORE + " + resultsSecondaryCamera.Count);
             results.AddRange(resultsSecondaryCamera);
-            Debug.Log(results.Count + " AFTER + " + resultsSecondaryCamera.Count);
         }
 
         if (results.Count > 0)

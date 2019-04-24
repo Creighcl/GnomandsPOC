@@ -20,7 +20,7 @@ public class MobSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             float randomXPosition = Random.Range(minX, maxX);
-            int randomMobIndex = Random.Range(0, mobPrefabs.Count - 1);
+            int randomMobIndex = Random.Range(0, mobPrefabs.Count);
             GameObject randomMob = mobPrefabs[randomMobIndex];
             var newMob = Instantiate(randomMob, transform);
             newMob.transform.localPosition = new Vector3(randomXPosition, 0f, 0f);
