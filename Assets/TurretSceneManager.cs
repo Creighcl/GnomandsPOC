@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class TurretSceneManager : MonoBehaviour
 {
+    public const string ENEMY_UNIT_TAG = "EnemyUnit";
     public delegate void FloatReturnDelegate(float a);
     public delegate void DoubleIntegerReturnDelegate(int a, int b);
     public delegate void NoParamDelegate();
     public DoubleIntegerReturnDelegate onCastleHealthChange;
     public FloatReturnDelegate onTimeLeftChange;
     public NoParamDelegate onCastleDestroyed;
-    public NoParamDelegate onTimeHasRunOut;
+    public NoParamDelegate onPlayerVictory;
+    public NoParamDelegate onPlayerDefeat;
 
     public static TurretSceneManager instance;
     void Awake()
@@ -29,6 +31,7 @@ public class TurretSceneManager : MonoBehaviour
     [SerializeField] int castleHp = 100;
     [SerializeField] float mapDurationSec = 60f;
     [SerializeField] float timeLeft = 60f;
+    bool mapComplete = false;
 
     private void Start()
     {
@@ -38,6 +41,56 @@ public class TurretSceneManager : MonoBehaviour
     private void Update()
     {
         AdvanceCountdownClock();
+        AdvanceGameState();
+    }
+
+    private void AdvanceGameState()
+    {
+        if (mapComplete) return;
+
+        if (IsPlayerVictorious())
+        {
+            mapComplete = true;
+            HandleVictory();
+            return;
+        }
+
+        if (IsPlayerDefeated())
+        {
+            mapComplete = true;
+            HandleDefeat();
+            return;
+        }
+    }
+
+    protected bool IsPlayerVictorious()
+    {
+        return (timeLeft == 0f && !EnemyUnitsExist());
+    }
+
+    protected void HandleVictory()
+    {
+        onPlayerVictory?.Invoke();
+    }
+
+    protected bool IsPlayerDefeated()
+    {
+        return castleHp == 0;
+    }
+
+    protected void HandleDefeat()
+    {
+        onPlayerDefeat?.Invoke();
+    }
+
+    private void HandleCastleDestroyed()
+    {
+        onCastleDestroyed?.Invoke();
+    }
+
+    private bool EnemyUnitsExist()
+    {
+        return GameObject.FindWithTag(ENEMY_UNIT_TAG) != null;
     }
 
     private void AdvanceCountdownClock()
@@ -46,11 +99,6 @@ public class TurretSceneManager : MonoBehaviour
 
         timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0f, mapDurationSec);
         onTimeLeftChange?.Invoke(timeLeft);
-
-        if (timeLeft == 0)
-        {
-            onTimeHasRunOut?.Invoke();
-        }
     }
 
     public string GetFormattedTimeLeft()
@@ -77,7 +125,7 @@ public class TurretSceneManager : MonoBehaviour
     {
         return (castleHp * 100f / castleMaxHp).ToString("0.00");
     }
-    
+
     public void CastleModifyHitPoints(int modification)
     {
         if (castleHp == 0) return;
@@ -87,7 +135,7 @@ public class TurretSceneManager : MonoBehaviour
 
         if (castleHp == 0)
         {
-            onCastleDestroyed?.Invoke();
+            HandleCastleDestroyed();
         }
     }
 }
