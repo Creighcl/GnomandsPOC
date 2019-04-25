@@ -11,18 +11,18 @@ public class CastleHpText : MonoBehaviour
     void Start()
     {
         _myTextComponent = GetComponent<Text>();
-        TurretSceneManager tsm = TurretSceneManager.instance;
+        TurretSceneManager tsm = TurretSceneManager.Instance;
         tsm.onCastleHealthChange += UpdateHp;
         UpdateHp(tsm.GetCastleHp(), tsm.GetCastleMaxHp());
     }
 
     void OnDestroy()
     {
-        TurretSceneManager.instance.onCastleHealthChange -= UpdateHp;
+        TurretSceneManager.Instance.onCastleHealthChange -= UpdateHp;
     }
 
     private void UpdateHp(int current, int max)
     {
-        _myTextComponent.text = TurretSceneManager.instance.GetCastleHpPercentString() + "%";
+        _myTextComponent.text = TurretSceneManager.Instance.GetCastleHpPercentString() + "%";
     }
 }

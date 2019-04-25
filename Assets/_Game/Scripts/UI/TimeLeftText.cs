@@ -11,13 +11,13 @@ public class TimeLeftText : MonoBehaviour
     void Start()
     {
         _myTextComponent = GetComponent<Text>();
-        TurretSceneManager tsm = TurretSceneManager.instance;
+        TurretSceneManager tsm = TurretSceneManager.Instance;
         tsm.onTimeLeftChange += UpdateTimeLeft;
         UpdateTimeLeft(tsm.GetTimeLeft());
     }
 
     private void UpdateTimeLeft(float unformattedTimeLeft)
     {
-        _myTextComponent.text = TurretSceneManager.instance.GetFormattedTimeLeft();
+        _myTextComponent.text = TurretSceneManager.Instance.GetFormattedTimeLeft();
     }
 }

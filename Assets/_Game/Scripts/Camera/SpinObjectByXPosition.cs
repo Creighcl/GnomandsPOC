@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpinObjectByXPosition : MonoBehaviour
 {
-    [SerializeField] GameObject spinningRoot;
+    [SerializeField] GameObject spinningRoot = null;
     [SerializeField] float mapLength = 0;
 
     private void Start()

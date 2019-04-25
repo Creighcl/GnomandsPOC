@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class orientleft : MonoBehaviour
 {
-    [SerializeField] GameObject leftClipMarker;
+    [SerializeField] GameObject leftClipMarker = null;
     [SerializeField] float differenceX = 0;
     [SerializeField] Camera leftTrailCamera;
     void Start()

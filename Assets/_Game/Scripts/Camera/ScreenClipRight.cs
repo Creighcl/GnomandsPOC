@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ScreenClipRight : MonoBehaviour
 {
-    [SerializeField] Transform RightClipMarker;
-    [SerializeField] Transform LeftClipMarker;
+    [SerializeField] Transform RightClipMarker = null;
+    [SerializeField] Transform LeftClipMarker = null;
     [SerializeField] Camera primaryCam;
-    [SerializeField] Camera trailCam;
+    [SerializeField] Camera trailCam = null;
     [SerializeField] float mapLength = 1f;
 
     private void Start()

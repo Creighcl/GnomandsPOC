@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CroppingSecondCollider : MonoBehaviour
 {
-    [SerializeField] ScreenClipRight scr;
-    [SerializeField] orientleft ol;
+    [SerializeField] ScreenClipRight scr = null;
+    [SerializeField] orientleft ol = null;
     BoxCollider2D _myBoxCollider;
 
     void Start()

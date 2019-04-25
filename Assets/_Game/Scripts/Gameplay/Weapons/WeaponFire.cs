@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
 {
-    [SerializeField] Animator anim;
-    [SerializeField] BoxCollider2D blastRadius;
-    [SerializeField] BoxCollider2D secondaryBlastRadius;
+    [SerializeField] Animator anim = null;
+    [SerializeField] BoxCollider2D blastRadius = null;
+    [SerializeField] BoxCollider2D secondaryBlastRadius = null;
 
    public void Fire()
     {
         anim.Play("Explosion", -1, 0f);
-        SoundManager.instance.PlaySound("fireCannon");
+        SoundManager.Instance.PlaySound("fireCannon");
         var a = new ContactFilter2D();
         a.SetLayerMask(LayerMask.GetMask("Enemy"));
         List<Collider2D> results = new List<Collider2D>();

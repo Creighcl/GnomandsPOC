@@ -15,6 +15,6 @@ public class EnemyGoalLine : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         Destroy(otherCollider.gameObject);
-        TurretSceneManager.instance.CastleModifyHitPoints(-5);
+        TurretSceneManager.Instance.CastleModifyHitPoints(-5);
     }
 }

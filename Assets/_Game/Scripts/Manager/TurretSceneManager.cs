@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretSceneManager : MonoBehaviour
+public class TurretSceneManager : Singleton<TurretSceneManager>
 {
     public const string ENEMY_UNIT_TAG = "EnemyUnit";
     public delegate void FloatReturnDelegate(float a);
@@ -14,20 +14,7 @@ public class TurretSceneManager : MonoBehaviour
     public NoParamDelegate onPlayerVictory;
     public NoParamDelegate onPlayerDefeat;
     public NoParamDelegate onTimerExpire;
-
-    public static TurretSceneManager instance;
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     [SerializeField] int castleMaxHp = 100;
     [SerializeField] int castleHp = 100;
     [SerializeField] float mapDurationSec = 60f;
