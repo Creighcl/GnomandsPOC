@@ -13,6 +13,7 @@ public class TurretSceneManager : MonoBehaviour
     public NoParamDelegate onCastleDestroyed;
     public NoParamDelegate onPlayerVictory;
     public NoParamDelegate onPlayerDefeat;
+    public NoParamDelegate onTimerExpire;
 
     public static TurretSceneManager instance;
     void Awake()
@@ -88,6 +89,11 @@ public class TurretSceneManager : MonoBehaviour
         onCastleDestroyed?.Invoke();
     }
 
+    private void HandleTimeExpired()
+    {
+        onTimerExpire?.Invoke();
+    }
+
     private bool EnemyUnitsExist()
     {
         return GameObject.FindWithTag(ENEMY_UNIT_TAG) != null;
@@ -99,6 +105,11 @@ public class TurretSceneManager : MonoBehaviour
 
         timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0f, mapDurationSec);
         onTimeLeftChange?.Invoke(timeLeft);
+
+        if (timeLeft == 0)
+        {
+            HandleTimeExpired();
+        }
     }
 
     public string GetFormattedTimeLeft()

@@ -11,16 +11,16 @@ public class MobSpawner : MonoBehaviour
 
     void OnDestroy()
     {
-        TurretSceneManager.instance.onTimeHasRunOut -= HandleTimeHasRunOut;
+        TurretSceneManager.instance.onTimerExpire -= HandleTimerExpire;
     }
 
     void Start()
     {
-        TurretSceneManager.instance.onTimeHasRunOut += HandleTimeHasRunOut;
+        TurretSceneManager.instance.onTimerExpire += HandleTimerExpire;
         StartSpawner();
     }
 
-    private void HandleTimeHasRunOut()
+    private void HandleTimerExpire()
     {
         if (isSpawning)
         {
