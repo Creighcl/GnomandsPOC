@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
-public class UI_CastleHpText : MonoBehaviour
+public class CastleHpText : MonoBehaviour
 {
     Text _myTextComponent;
 

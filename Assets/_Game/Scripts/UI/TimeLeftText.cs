@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
-public class UI_TimeLeftText : MonoBehaviour
+public class TimeLeftText : MonoBehaviour
 {
     Text _myTextComponent;
 

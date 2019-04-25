@@ -72,6 +72,17 @@ public class TurretSceneManager : MonoBehaviour
     protected void HandleVictory()
     {
         onPlayerVictory?.Invoke();
+        HideUICanvasses();
+        GameObject.Find("Victory Canvas").GetComponent<Canvas>().enabled = true;
+    }
+
+    private void HideUICanvasses()
+    {
+        var canvasses = GameObject.FindGameObjectsWithTag("UI Canvas");
+        foreach (var canvas in canvasses)
+        {
+            canvas.GetComponent<Canvas>().enabled = false;
+        }
     }
 
     protected bool IsPlayerDefeated()
@@ -82,6 +93,8 @@ public class TurretSceneManager : MonoBehaviour
     protected void HandleDefeat()
     {
         onPlayerDefeat?.Invoke();
+        HideUICanvasses();
+        GameObject.Find("Defeat Canvas").GetComponent<Canvas>().enabled = true;
     }
 
     private void HandleCastleDestroyed()

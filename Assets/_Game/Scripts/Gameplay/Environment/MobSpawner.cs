@@ -47,6 +47,7 @@ public class MobSpawner : MonoBehaviour
             int randomMobIndex = Random.Range(0, mobPrefabs.Count);
             GameObject randomMob = mobPrefabs[randomMobIndex];
             var newMob = Instantiate(randomMob, transform);
+            newMob.transform.SetParent(GameObject.Find("Actors").transform);
             newMob.transform.localPosition = new Vector3(randomXPosition, 0f, 0f);
             yield return new WaitForSeconds(1f);
         }
