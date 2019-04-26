@@ -4,6 +4,7 @@ using System;
 
 public class StageManager : Singleton<StageManager>
 {
+    private const string ACTORS_STAGE_FIND_PATH = "_Stage/OnStage/Actors";
     public delegate void GameObjectDelegate(GameObject gameObject);
     public GameObjectDelegate onActorAddedToStage;
     public GameObjectDelegate onElementAddedToStage;
@@ -32,7 +33,7 @@ public class StageManager : Singleton<StageManager>
         switch (template.ElementType)
         {
             case StageElementType.ONSTAGE_ACTOR:
-                parent = GameObject.Find("_Stage/OnStage/Actors")?.transform;
+                parent = GameObject.Find(ACTORS_STAGE_FIND_PATH)?.transform;
                 break;
         }
 

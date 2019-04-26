@@ -5,11 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Level : ScriptableObject
 {
-    public List<Wave> waves;
-    public float waveIntervalSeconds;
-
-    public void SayHello()
-    {
-        Debug.Log("HI!");
-    }
+    public List<Wave> Waves;
+    public float WaveIntervalSeconds;
+    public int CastleMaxHp;
+    public float MapDurationSec;
 }

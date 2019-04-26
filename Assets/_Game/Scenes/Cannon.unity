@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 1114340009}
   m_Layer: 0
   m_Name: Victory Canvas
-  m_TagString: UI Canvas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 1305597510}
   m_Layer: 0
   m_Name: Defeat Canvas
-  m_TagString: UI Canvas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 1805349402}
   m_Layer: 5
   m_Name: Combat Canvas
-  m_TagString: UI Canvas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2344,6 +2344,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1982203482674579280, guid: ad3d023f55034af43bfdb4649e148fac,
+        type: 3}
+      propertyPath: Level
+      value: 
+      objectReference: {fileID: 11400000, guid: c45f0e675215c364ead379bff473ab37,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad3d023f55034af43bfdb4649e148fac, type: 3}
 --- !u!1001 &2209427623327793506

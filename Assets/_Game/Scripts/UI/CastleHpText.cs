@@ -12,13 +12,13 @@ public class CastleHpText : MonoBehaviour
     {
         _myTextComponent = GetComponent<Text>();
         TurretSceneManager tsm = TurretSceneManager.Instance;
-        tsm.onCastleHealthChange += UpdateHp;
+        tsm.OnCastleHealthChange += UpdateHp;
         UpdateHp(tsm.GetCastleHp(), tsm.GetCastleMaxHp());
     }
 
     void OnDestroy()
     {
-        TurretSceneManager.Instance.onCastleHealthChange -= UpdateHp;
+        TurretSceneManager.Instance.OnCastleHealthChange -= UpdateHp;
     }
 
     private void UpdateHp(int current, int max)

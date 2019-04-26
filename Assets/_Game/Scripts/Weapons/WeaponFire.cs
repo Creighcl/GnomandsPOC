@@ -10,8 +10,6 @@ public class WeaponFire : MonoBehaviour
 
    public void Fire()
     {
-        anim.Play("Explosion", -1, 0f);
-        SoundManager.Instance.PlaySound("fireCannon");
         var a = new ContactFilter2D();
         a.SetLayerMask(LayerMask.GetMask("Enemy"));
         List<Collider2D> results = new List<Collider2D>();
