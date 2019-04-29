@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6993018812023044371}
   - component: {fileID: 6993018812023044370}
   - component: {fileID: 7551894560712295432}
+  - component: {fileID: 5909011183963951095}
   m_Layer: 8
   m_Name: Little Chicken
   m_TagString: EnemyUnit
@@ -109,14 +110,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.007
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6993018812023044370
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +148,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitpoints: 10
   currentHitpoints: 10
+--- !u!114 &5909011183963951095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993018812023044372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacd4d45564846e4db07e3fef90ce105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 1
+  _movementDirection: {x: 0, y: -1}
