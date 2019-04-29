@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
 {
-    [SerializeField] Animator anim = null;
     [SerializeField] BoxCollider2D blastRadius = null;
     [SerializeField] BoxCollider2D secondaryBlastRadius = null;
 
-   public void Fire()
+    private void Start()
+    {
+        TurretSceneManager.Instance.OnPlayerAttack += HandlePlayerAttack;
+    }
+
+    private void OnDestroy()
+    {
+        if (TurretSceneManager.Instance != null)
+        {
+            TurretSceneManager.Instance.OnPlayerAttack -= HandlePlayerAttack;
+        }
+    }
+    public void HandlePlayerAttack()
     {
         var a = new ContactFilter2D();
         a.SetLayerMask(LayerMask.GetMask("Enemy"));

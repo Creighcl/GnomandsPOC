@@ -10,11 +10,8 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene(sceneId);
     }
 
-    private void Update()
+    public void LoadChosenScene(Scenes scene)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            LoadSceneById(0);
-        }
+        SceneManager.LoadScene((int)scene);
     }
 }

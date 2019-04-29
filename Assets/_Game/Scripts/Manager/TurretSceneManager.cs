@@ -21,6 +21,7 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
     public NoParamDelegate OnTimerExpire;
     public LevelDelegate OnLevelStart;
     public NoParamDelegate OnPlayerAttack;
+    public FloatReturnDelegate OnMapWidthChange;
 
     public Level Level;
     [SerializeField] private int _castleCurrentHitPoints = 100;
@@ -61,7 +62,15 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
         _waveCoroutine = StartCoroutine(DoWaveLoop(Level));
         _levelStarted = true;
         _levelComplete = false;
+        LoadBackground();
         OnLevelStart?.Invoke(Level);
+    }
+
+    private void LoadBackground()
+    {
+        GameObject newBackground = (GameObject)Instantiate(Resources.Load("Prefabs/Stages/PocStageBackground"), GameObject.Find("_Stage/Background")?.transform);
+        float mapWidth = newBackground.GetComponent<SpriteRenderer>().bounds.size.x;
+        OnMapWidthChange?.Invoke(mapWidth);
     }
 
     IEnumerator DoWaveLoop(Level level)
@@ -76,7 +85,7 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
 
     private void AdvanceGameState()
     {
-        if (_levelComplete) return;
+        if (!_levelStarted || _levelComplete) return;
 
         if (IsPlayerVictorious())
         {

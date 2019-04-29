@@ -15,7 +15,9 @@ public class Cannon : MonoBehaviour
 
     private void OnDestroy()
     {
-        TurretSceneManager.Instance.OnPlayerAttack -= HandlePlayerAttack;
+        if (TurretSceneManager.Instance != null) {
+            TurretSceneManager.Instance.OnPlayerAttack -= HandlePlayerAttack;
+        }
     }
 
     private void HandlePlayerAttack()

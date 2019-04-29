@@ -43,10 +43,9 @@ public class UIManager : Singleton<UIManager>
     private void AddOverlayByName(string uiOverlayName)
     {
         GameObject overlay = ResourceLoader.GetUIOverlayByName(uiOverlayName);
-
         if (overlay != null)
         {
-            Instantiate(overlay, Vector3.zero, Quaternion.identity);
+            Instantiate(overlay, Vector3.zero, Quaternion.identity, GameObject.Find("_UI")?.transform);
         }
     }
 

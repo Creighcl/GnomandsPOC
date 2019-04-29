@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CameraDragAndSwipe : MonoBehaviour
+public class HorizontalDragAndSwipeController : MonoBehaviour
 {
     Rigidbody2D _rigidbody;
     Queue<TouchPointHistoricalEntry> touchPointHistory = new Queue<TouchPointHistoricalEntry>();

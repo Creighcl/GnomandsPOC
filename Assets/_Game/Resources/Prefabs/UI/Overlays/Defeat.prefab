@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 5953304455047349578}
   - component: {fileID: 5953304455047349579}
   m_Layer: 0
-  m_Name: Defeat Canvas
+  m_Name: Defeat
   m_TagString: UIOverlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953304455047349577}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 5953304455227009656}
   - component: {fileID: 5953304455227009657}
   - component: {fileID: 5953304455227009662}
+  - component: {fileID: 1615583617922112745}
   m_Layer: 0
   m_Name: Title Button
   m_TagString: Untagged
@@ -458,7 +459,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1615583617922112745}
         m_MethodName: LoadSceneById
         m_Mode: 3
         m_Arguments:
@@ -471,6 +472,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1615583617922112745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953304455227009660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4d9b42c1538634a857c793c9041b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5953304455351107256
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +496,7 @@ GameObject:
   - component: {fileID: 5953304455351107252}
   - component: {fileID: 5953304455351107253}
   - component: {fileID: 5953304455351107258}
+  - component: {fileID: 3770962559854043971}
   m_Layer: 0
   m_Name: Restart Button
   m_TagString: Untagged
@@ -590,7 +604,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3770962559854043971}
         m_MethodName: LoadSceneById
         m_Mode: 3
         m_Arguments:
@@ -603,6 +617,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3770962559854043971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953304455351107256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4d9b42c1538634a857c793c9041b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5953304456472233424
 GameObject:
   m_ObjectHideFlags: 0

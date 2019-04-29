@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fc43834b8c0bf4192beaef13ab853a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 766703025017984133}
   blastRadius: {fileID: 766703025163802621}
   secondaryBlastRadius: {fileID: 766703025413391341}
 --- !u!1 &766703024867253271

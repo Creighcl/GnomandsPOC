@@ -8,7 +8,7 @@ public class StageManager : Singleton<StageManager>
     public delegate void GameObjectDelegate(GameObject gameObject);
     public GameObjectDelegate onActorAddedToStage;
     public GameObjectDelegate onElementAddedToStage;
-    
+
     public void AddElementToStage(StageElementCreationTemplate template)
     {
         if (template.DelaySeconds == 0f)

@@ -5,47 +5,72 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CroppingSecondCollider : MonoBehaviour
 {
-    [SerializeField] ScreenClipRight scr = null;
-    [SerializeField] orientleft ol = null;
     BoxCollider2D _myBoxCollider;
+    float _mapWidth = 1;
 
-    void Start()
+    private void Start()
     {
-        _myBoxCollider = GetComponent<BoxCollider2D>();    
+        _myBoxCollider = GetComponent<BoxCollider2D>();
+        TurretSceneManager.Instance.OnMapWidthChange += SetMapWidth;
+    }
+
+    private void OnDestroy()
+    {
+        if (TurretSceneManager.Instance != null)
+        {
+            TurretSceneManager.Instance.OnMapWidthChange -= SetMapWidth;
+        }
+    }
+
+    private void SetMapWidth(float width)
+    {
+        _mapWidth = width;
     }
 
     void Update()
     {
         CropTrailCameraColliderToVisibleArea();
+    }
 
+    private float getScreenWidth()
+    {
+        Camera cam = Camera.main;
+        float height = 2f * cam.orthographicSize;
+        float width = height * cam.aspect;
+        return width;
     }
 
     private void CropTrailCameraColliderToVisibleArea()
     {
-        float mapLength = scr.getMapLength();
-        float aspectPixelOffset = ol.GetDifferenceX();
         float x = transform.position.x;
         _myBoxCollider.enabled = false;
 
-        bool isPartiallyShowingOnRight = x < mapLength && x > mapLength + (2 * aspectPixelOffset);
+        float rightSide_leftBoundary = (_mapWidth / 2f) - (getScreenWidth() / 2);
+        float rightSide_rightBoundary = (_mapWidth / 2f) + (getScreenWidth() / 2);
+
+        bool isPartiallyShowingOnRight = x > rightSide_leftBoundary && x < rightSide_rightBoundary;
         if (isPartiallyShowingOnRight)
         {
             _myBoxCollider.enabled = true;
-            float a = mapLength - x;
-            float centerVertex = (a / 2) + aspectPixelOffset;
+            float visibleWidthFromLeft = rightSide_rightBoundary - x;
+            float centerVertex = -(getScreenWidth() - visibleWidthFromLeft) / 2;
             _myBoxCollider.offset = new Vector2(centerVertex, 0f);
-            _myBoxCollider.size = new Vector2(a, _myBoxCollider.size.y);
+            _myBoxCollider.size = new Vector2(visibleWidthFromLeft, _myBoxCollider.size.y);
             return;
         }
 
-        bool isPartiallyShowingOnLeft = x > (2 * aspectPixelOffset) && x < 0;
+        float leftSide_leftBoundary = -(_mapWidth / 2f) - (getScreenWidth() / 2);
+        float leftSide_rightBoundary = -(_mapWidth / 2f) + (getScreenWidth() / 2);
+
+        bool isPartiallyShowingOnLeft = x > leftSide_leftBoundary && x < leftSide_rightBoundary;
         if (isPartiallyShowingOnLeft)
         {
             _myBoxCollider.enabled = true;
-            float length = Mathf.Abs((2 * aspectPixelOffset) - x);
-            float centerVertex = (-1 * aspectPixelOffset) - (length / 2);
+            float visibleWidthFromRight = -(leftSide_leftBoundary - x);
+            float centerVertex = (getScreenWidth() - visibleWidthFromRight) / 2;
+            
             _myBoxCollider.offset = new Vector2(centerVertex, 0f);
-            _myBoxCollider.size = new Vector2(length, _myBoxCollider.size.y);
+            _myBoxCollider.size = new Vector2(visibleWidthFromRight, _myBoxCollider.size.y);
         }
     }
 }

@@ -18,7 +18,10 @@ public class CastleHpText : MonoBehaviour
 
     void OnDestroy()
     {
-        TurretSceneManager.Instance.OnCastleHealthChange -= UpdateHp;
+        if (TurretSceneManager.Instance != null)
+        {
+            TurretSceneManager.Instance.OnCastleHealthChange -= UpdateHp;
+        }
     }
 
     private void UpdateHp(int current, int max)

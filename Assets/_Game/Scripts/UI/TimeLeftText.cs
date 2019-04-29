@@ -16,6 +16,11 @@ public class TimeLeftText : MonoBehaviour
         UpdateTimeLeft(tsm.GetTimeLeft());
     }
 
+    private void OnDestroy()
+    {
+        TurretSceneManager.Instance.OnTimeLeftChange -= UpdateTimeLeft;
+    }
+
     private void UpdateTimeLeft(float unformattedTimeLeft)
     {
         _myTextComponent.text = TurretSceneManager.Instance.GetFormattedTimeLeft();
