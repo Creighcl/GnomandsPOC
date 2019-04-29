@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Level : ScriptableObject
 {
+    public Levels Id;
+    public Backgrounds Background;
     public List<Wave> Waves;
     public float WaveIntervalSeconds;
     public int CastleMaxHp;

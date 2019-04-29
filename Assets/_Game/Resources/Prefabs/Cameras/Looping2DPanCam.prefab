@@ -389,11 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59970918e05b0a34abea380ee8a3d4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightClipMarker: {fileID: 0}
-  LeftClipMarker: {fileID: 0}
   primaryCam: {fileID: 766703025163802371}
   trailCam: {fileID: 766703025413391347}
-  mapLength: 1
 --- !u!114 &766703025163802622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinningRoot: {fileID: 766703024867253271}
-  mapLength: 0
+  _mapWidth: 1
 --- !u!50 &766703025163802616
 Rigidbody2D:
   serializedVersion: 4
@@ -585,5 +582,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad0fba3121664f4db23f7ecfd368087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scr: {fileID: 766703025163802370}
-  ol: {fileID: 0}

@@ -357,26 +357,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 766703025163802370, guid: 429b841c7f335f34f85fb659d3894a70,
-        type: 3}
-      propertyPath: RightClipMarker
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 766703025163802370, guid: 429b841c7f335f34f85fb659d3894a70,
-        type: 3}
-      propertyPath: LeftClipMarker
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 766703025413391346, guid: 429b841c7f335f34f85fb659d3894a70,
-        type: 3}
-      propertyPath: ol
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 766703025413391346, guid: 429b841c7f335f34f85fb659d3894a70,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 429b841c7f335f34f85fb659d3894a70, type: 3}
 --- !u!1001 &4143453097848182675

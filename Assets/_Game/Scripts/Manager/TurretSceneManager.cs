@@ -68,7 +68,9 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
 
     private void LoadBackground()
     {
-        GameObject newBackground = (GameObject)Instantiate(Resources.Load("Prefabs/Stages/PocStageBackground"), GameObject.Find("_Stage/Background")?.transform);
+        var backgroundParent = GameObject.Find(StageManager.BACKGROUND_STAGE_FIND_PATH)?.transform;
+        var backgroundPrefab = ResourceLoader.GetBackgroundByName(Level.Background.ToString());
+        GameObject newBackground = (GameObject)Instantiate(backgroundPrefab, backgroundParent);
         float mapWidth = newBackground.GetComponent<SpriteRenderer>().bounds.size.x;
         OnMapWidthChange?.Invoke(mapWidth);
     }
@@ -91,7 +93,6 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
         {
             _levelComplete = true;
             OnPlayerVictory?.Invoke();
-            Debug.Log("Victory");
             return;
         }
 
@@ -99,7 +100,6 @@ public class TurretSceneManager : Singleton<TurretSceneManager>
         {
             _levelComplete = true;
             OnPlayerDefeat?.Invoke();
-            Debug.Log("DEFEAT" + (OnPlayerDefeat == null));
             return;
         }
     }

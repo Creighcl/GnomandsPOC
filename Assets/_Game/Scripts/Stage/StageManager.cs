@@ -5,6 +5,7 @@ using System;
 public class StageManager : Singleton<StageManager>
 {
     private const string ACTORS_STAGE_FIND_PATH = "_Stage/OnStage/Actors";
+    public const string BACKGROUND_STAGE_FIND_PATH = "_Stage/Background";
     public delegate void GameObjectDelegate(GameObject gameObject);
     public GameObjectDelegate onActorAddedToStage;
     public GameObjectDelegate onElementAddedToStage;

@@ -18,7 +18,10 @@ public class TimeLeftText : MonoBehaviour
 
     private void OnDestroy()
     {
-        TurretSceneManager.Instance.OnTimeLeftChange -= UpdateTimeLeft;
+        if (TurretSceneManager.Instance != null)
+        {
+            TurretSceneManager.Instance.OnTimeLeftChange -= UpdateTimeLeft;
+        }
     }
 
     private void UpdateTimeLeft(float unformattedTimeLeft)
