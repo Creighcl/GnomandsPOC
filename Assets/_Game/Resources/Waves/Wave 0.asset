@@ -16,30 +16,15 @@ MonoBehaviour:
   - ElementType: 0
     Prefab: {fileID: 6993018812023044372, guid: 36edd0b80472d204d853c2a696e81eb3,
       type: 3}
-    Position: {x: -1, y: 2.5, z: 0}
+    Position: {x: -0.1, y: 2.5, z: 0}
     DelaySeconds: 1
   - ElementType: 0
     Prefab: {fileID: 6802015092527437821, guid: 87786617783e3b446aa2180a40505429,
       type: 3}
-    Position: {x: 1, y: 2.5, z: 0}
+    Position: {x: 0.1, y: 2.5, z: 0}
     DelaySeconds: 0.1
   - ElementType: 0
-    Prefab: {fileID: 3483460382596994972, guid: 41ce7d189c662484baaea997d829efcc,
+    Prefab: {fileID: 6005274862064368357, guid: 9d156d497bd4260419ed44188b0f94d5,
       type: 3}
-    Position: {x: 16, y: 2.5, z: 0}
-    DelaySeconds: 0.3
-  - ElementType: 0
-    Prefab: {fileID: 3483460382596994972, guid: 41ce7d189c662484baaea997d829efcc,
-      type: 3}
-    Position: {x: -16, y: 2.5, z: 0}
-    DelaySeconds: 0.05
-  - ElementType: 0
-    Prefab: {fileID: 6802015092527437821, guid: 87786617783e3b446aa2180a40505429,
-      type: 3}
-    Position: {x: 50, y: 2.5, z: 0}
-    DelaySeconds: 0.23
-  - ElementType: 0
-    Prefab: {fileID: 6993018812023044372, guid: 36edd0b80472d204d853c2a696e81eb3,
-      type: 3}
-    Position: {x: -50, y: 2.5, z: 0}
-    DelaySeconds: 0
+    Position: {x: 1, y: 2.5, z: 0}
+    DelaySeconds: 0.1
