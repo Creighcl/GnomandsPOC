@@ -22,7 +22,8 @@ public class WeaponFire : MonoBehaviour
     public void HandlePlayerAttack()
     {
         var a = new ContactFilter2D();
-        a.SetLayerMask(LayerMask.GetMask("Enemy"));
+        string[] layers = { "Enemy", "EnemyProjectile" };
+        a.SetLayerMask(LayerMask.GetMask(layers));
         List<Collider2D> results = new List<Collider2D>();
         Physics2D.OverlapCollider(blastRadius, a, results);
         if (secondaryBlastRadius.enabled)

@@ -16,13 +16,7 @@ public class Movable : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_rb2d.velocity.y + " " + _movementSpeed);
-        if (_rb2d.velocity.x < (_movementDirection.x * _movementSpeed) || _rb2d.velocity.y > (_movementDirection.y * _movementSpeed))
-        {
-            _rb2d.AddForce(_movementDirection * (_movementSpeed * 25) * Time.deltaTime, ForceMode2D.Force);
-        } else
-        {
-            Debug.Log("THROTTLE");
-        }
+        _rb2d.AddForce(_movementDirection * 50f * Time.deltaTime, ForceMode2D.Force);
+        _rb2d.velocity = Vector3.ClampMagnitude(_rb2d.velocity, _movementSpeed);
     }
 }

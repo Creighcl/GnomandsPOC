@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3483460382596994968}
   - component: {fileID: 3483460382596994966}
   - component: {fileID: 3483460382596994965}
+  - component: {fileID: -2204517234253892737}
   m_Layer: 8
   m_Name: Little Piggy
   m_TagString: EnemyUnit
@@ -109,9 +110,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.007
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,3 +148,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitpoints: 10
   currentHitpoints: 10
+--- !u!114 &-2204517234253892737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483460382596994972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacd4d45564846e4db07e3fef90ce105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 0.2
+  _movementDirection: {x: 0, y: -1}
