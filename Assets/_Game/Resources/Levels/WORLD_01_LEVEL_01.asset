@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: WORLD_01_LEVEL_01
   m_EditorClassIdentifier: 
   Id: 0
-  Background: 1
+  Background: 0
   Waves:
-  - {fileID: 11400000, guid: 0bbd6bbf48bb3714cb1d081c839243f5, type: 2}
-  - {fileID: 11400000, guid: 0bbd6bbf48bb3714cb1d081c839243f5, type: 2}
-  - {fileID: 11400000, guid: 0bbd6bbf48bb3714cb1d081c839243f5, type: 2}
-  WaveIntervalSeconds: 8
+  - {fileID: 11400000, guid: 9526600326288354fbebd29418b902d1, type: 2}
+  - {fileID: 11400000, guid: 2f00617ee0a0a1143b7e757e1d0c58bc, type: 2}
+  - {fileID: 11400000, guid: 714ee1064155b474ea737dc7ebfcb4e5, type: 2}
+  - {fileID: 11400000, guid: 714ee1064155b474ea737dc7ebfcb4e5, type: 2}
+  WaveIntervalSeconds: 20
   CastleMaxHp: 15
-  MapDurationSec: 15
+  MapDurationSec: 80
